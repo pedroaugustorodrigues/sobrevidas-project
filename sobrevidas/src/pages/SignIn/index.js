@@ -4,30 +4,45 @@ import {
   Text,
   StyleSheet,
   Image,
+  TextInput,
   TouchableOpacity
 
  } from 'react-native'
+
+ import * as Animatable from 'react-native-animatable'
 
 export default function SignIn() {
   return (
     <View style={styles.container}>
 
         <View style={styles.containerLogo}>
-          <Image source={require('../../assets/logo.png')}
+          <Animatable.Image
+          animation="bounceIn"
+          source={require('../../assets/logo.png')}
           style={{ width: '100%' }}
           resizeMode="contain"
            />
         </View>
 
-        <View style={styles.containerForm}>
-          <Text style={styles.title}>Faça seu login</Text>
-          <Text style={styles.text}>ou crie uma conta</Text>
+        <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm}>
 
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Entrar</Text>
-        </TouchableOpacity>
+        <Text style={styles.title}>
+            Autenticação
+          </Text>
 
-        </View>
+          <TextInput 
+          style={styles.input} placeholder="CPF" 
+          />
+
+          <TextInput 
+          style={styles.input} placeholder="Senha" 
+          />
+
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Entrar</Text>
+          </TouchableOpacity>
+          
+        </Animatable.View>
 
     </View>
   );
@@ -36,11 +51,11 @@ export default function SignIn() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#A020F0',
+    backgroundColor: '#a751ad',
   },
   containerLogo: {
-    flex: 2,
-    backgroundColor: '#A020F0',
+    flex: 1,
+    backgroundColor: '#a751ad',
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -56,16 +71,29 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginTop: 28,
-    marginBottom: 12
+    marginBottom: 12,
+    textAlign: 'center',
+    color: '#4757A4'
   },
-  text: {
-    color: '#A020F0'
+  input: {
+    borderRadius: 25,
+    padding: 10,
+    paddingTop: 15,
+    paddingBottom: 15,
+    marginBottom: 12,
+    marginTop: 12,
+    backgroundColor: 'lightgrey'
   },
   button: {
-    backgroundColor: '#A020F0',
-    padding: 16,
     borderRadius: 25,
+    padding: 15,
+    backgroundColor: '#4757A4',
     alignItems: 'center',
-    marginTop: 24
+    marginBottom: 12
   },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18
+  }
 })
