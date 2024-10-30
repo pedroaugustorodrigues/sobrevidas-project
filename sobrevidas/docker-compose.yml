@@ -11,4 +11,4 @@ services:
       - ./keycloak-config:/opt/keycloak/data/import
     command: start-dev --import-realm
     ports:
-      - "8081:8080"  # Altere para 8081
+      - "8081:8080"

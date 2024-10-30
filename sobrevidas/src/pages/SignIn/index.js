@@ -30,14 +30,14 @@ export default function SignIn() {
       const response = await axios.post(keycloakUrl, new URLSearchParams({
         grant_type: 'password',
         client_id: 'sobrevidas',
-        client_secret: 'ksSWpLNyHc3XFiZV43ywYCAqYvW7fw6w',
+        client_secret: '[Aqui Coloca o id]',
         username: cpf,
         password: senha,
       }), {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        withCredentials: true, // Adicione isso se necessário
+        withCredentials: true,
       });
       
     console.log('Resposta do servidor:', response.data);
