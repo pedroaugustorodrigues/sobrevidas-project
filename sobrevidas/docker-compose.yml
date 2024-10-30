@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0.1
+    environment:
+      - KC_SPI_IMPORT_ENABLED=true
+      - KC_SPI_IMPORT_STRATEGY=REALM_FILE
+      - KC_SPI_IMPORT_DIR=/opt/keycloak/data/import
+    volumes:
+      - ./keycloak-config:/opt/keycloak/data/import
+    command: start-dev --import-realm
+    ports:
+      - "8081:8080"  # Altere para 8081
