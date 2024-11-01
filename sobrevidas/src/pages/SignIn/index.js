@@ -12,7 +12,7 @@ import * as Animatable from 'react-native-animatable';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const keycloakUrl = 'http://localhost:8080/realms/master/protocol/openid-connect/token';
+const keycloakUrl = 'http://localhost:8080/realms/sobrevidas/protocol/openid-connect/token';
 
 const icons = {
   cpf: require('../../assets/images/Contacts.png'),
@@ -29,10 +29,11 @@ export default function SignIn() {
     try {
       const response = await axios.post(keycloakUrl, new URLSearchParams({
         grant_type: 'password',
-        client_id: 'sobrevidas',
-        client_secret: '[Aqui Coloca o id]',
-        username: cpf,
-        password: senha,
+        client_id: 'backend',
+        client_secret: 'VpGmvPLHd31Aw0GljlubnHDNh96Vskde',
+        scope: 'openid',
+        username: 'admin',
+        password: 'admin@123',
       }), {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
